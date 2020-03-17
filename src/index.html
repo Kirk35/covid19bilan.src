@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" type="image/png" href="/favicon-covid19-bilan.png" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>Covid19Bilan.fr</title>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.js"></script>
+</head>
+
+<style>
+  html,
+  body {
+    height: 100%;
+    font-size: small;
+  }
+
+  body {
+    background-color: #f5f5f5;
+  }
+
+  #welcomeBlock {
+    height: 100%;
+    background-color: #c2c2c2;
+  }
+</style>
+
+<body>
+  <div id="WELCOME" class="welcomeBlock container-fluid h-100" style=" display: none;">
+    <div class="row  align-middle align-items-center h-100">
+      <div class="col-12 hidden-md-down" id="yellow">
+        <!-- <p class="display-4">Bienvenue sur Covid19Bilan.fr</p> -->
+        <img style="width:100%" src="/logo-covid19-bilan.png">
+        <br>
+        <br>
+        <h1 class="lead">Nombre de cas Covid19 confirmés en France détaillés par régions.
+        </h1>
+        <br>
+        <p class="lead">
+          <button id="appWelcome" class="btn btn-primary btn-lg" type="button">Voir les statistiques
+          </button>
+        </p>
+        <hr class="my-4">
+        <p>Ce projet est opensource sur Github. Pour plus d'information ou si vous voulez contribuer, voir <a
+            href='https://github.com/Kirk35/covid19bilan.src'>https://github.com/Kirk35/covid19bilan.src</a></p>
+        <p>Ce site est fait pour une consultation sur téléphone/tablette. Il est basé sur des données provenant du site
+          <a href='https://github.com/opencovid19-fr/'>github.com/opencovid19-fr</a> qui se base sur des sources
+          d'information publiques.</p>
+      </div>
+    </div>
+  </div>
+
+  <span id="RESULTS" style="display: none; ">
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <form class="form-inline" style="width:100%">
+        <div class="input-group-prepend" style="width:100%">
+          <button id="appUpdateReg" style="width:50%" class="btn btn-primary" type="button">Region
+          </button>&nbsp
+          <!-- <button id="appUpdateDep" style="width:50%" class="btn btn-primary" type="button">Département
+          </button>&nbsp -->
+          <button id="appUpdateFra" style="width:50%" class="btn btn-primary" type="button">
+            France
+          </button>
+        </div>
+      </form>
+    </nav>
+
+    <span id="myspinner" style="margin-top: 60px;">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border m-5" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </span>
+
+    <table class="table table-striped" id="theTable" style="margin-top: 55px;">
+      <tbody id="etat"></tbody>
+    </table>
+
+    <br><br>
+
+  </span>
+
+  <span id="DETAILS" style="display: none; text-align:center;">
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <form class="form-inline" style="width:100%">
+        <div class="input-group-prepend" style="width:100%">
+          <!-- <span class="navbar-brand">COVID19</span> -->
+          <button id="appDetailsBack" style="width:100%" class="pull-right btn btn-primary" type="button">
+            Retour
+          </button>
+          <!--  -->
+        </div>
+      </form>
+    </nav>
+    <span>
+      <br>
+      <br>
+      <br>
+      <h4 id="detailsTitle">
+      </h4>
+      <br>
+      <!-- <div class="chart-container" style="text-align:center;  width:100%">
+        <canvas id="myChartC"></canvas>
+      </div>
+      <br> -->
+      <span id="detailsConfirmes"></span>
+    </span>
+  </span>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
