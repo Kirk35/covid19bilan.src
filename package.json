@@ -10,7 +10,7 @@
   "dependencies": {
     "@warpjs/engine": "^1.1.4",
     "@warpjs/warp": "^2.0.1",
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@warpjs/webpack-plugin": "^1.1.4",
